@@ -1,0 +1,11 @@
+---
+# tasks file for elkstack
+- include_tasks: repos.yml
+
+- include_tasks: packages.yml
+
+- import_tasks: config.yml
+
+- import_tasks: firewall.yml
+
+- import_tasks: services.yml

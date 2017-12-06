@@ -1,0 +1,15 @@
+- name: import Elastic GPG Key
+  rpm_key:
+    state: present
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Add elasticsearch repo
+  yum_repository:
+    name: elasticsearch-6.x
+    description: Elastic repo
+    baseurl: https://artifacts.elastic.co/packages/6.x/yum
+    gpgcheck: yes
+    gpgkey: http://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+    file: elasticsearch 
+

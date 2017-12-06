@@ -1,0 +1,9 @@
+- name: Install required ELK packages
+  action: >
+      {{ ansible_pkg_mgr }} name={{ item }} state=present
+  with_items:
+    - java-1.8.0-openjdk
+    - elasticsearch
+    - logstash
+    - kibana
+

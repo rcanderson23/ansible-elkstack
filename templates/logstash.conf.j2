@@ -1,0 +1,25 @@
+#This file is controlled via ansible. Configuration changes will be overwritten on 
+#next ansible run. Edit via the ansible template.
+
+# Input section
+
+input {
+    beats {
+        port                    => {{ logstash_port }}
+        ssl                     => {{ logstash_ssl }}
+        ssl_certificate         => {{ logstash_ssl_cert }}
+        ssl_key                 => {{ logstash_ssl_key }}
+    }
+}
+
+
+# Output section
+output {
+    elasticsearch {
+        hosts                   => "localhost:9200"
+        index                   => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
+    }
+    stdout {
+        codec                   => rubydebug
+    }
+}

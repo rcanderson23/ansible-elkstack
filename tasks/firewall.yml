@@ -1,0 +1,9 @@
+- name: open logstash port
+  firewalld:
+    port: "{{ logstash_port }}/tcp"
+    permanent: true
+    state: enabled
+  notify:
+    - reload firewall
+
+  

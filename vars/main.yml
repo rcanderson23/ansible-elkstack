@@ -1,0 +1,17 @@
+---
+# vars file for elkstack
+# Logstash vars
+logstash_port: 5044
+logstash_ssl: true
+logstash_ssl_cert: /etc/pki/web-certs/cert.pem
+logstash_ssl_key: /etc/pki/web-certs/privkey.pem
+
+# kibana vars
+kibana_port: 5601
+kibana_ip: 127.0.0.1
+kibana_elastic_url: http://localhost:9200
+kibana_log_dest: /etc/kibana/log
+
+# elasticsearch vars
+elastic_ip: 127.0.0.1
+elastic_port: 9200

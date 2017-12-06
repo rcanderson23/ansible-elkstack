@@ -1,0 +1,36 @@
+- name: Elasticsearch config
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+    owner: root
+    group: elasticsearch
+    mode: 0660
+  notify:
+    - restart elasticsearch
+
+- name: Logstash config
+  template:
+    src: logstash.conf.j2
+    dest: /etc/logstash/conf.d/logstash.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart logstash
+
+- name: Kibana config
+  template:
+    src: kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart kibana
+
+- name: ensure kibana log file is present
+  file:
+    path: "{{ kibana_log_dest }}"
+    mode: 0666
+    state: touch
+
