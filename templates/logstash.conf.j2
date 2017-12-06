@@ -6,9 +6,9 @@
 input {
     beats {
         port                    => {{ logstash_port }}
-        ssl                     => {{ logstash_ssl }}
-        ssl_certificate         => {{ logstash_ssl_cert }}
-        ssl_key                 => {{ logstash_ssl_key }}
+        ssl                     => true 
+        ssl_certificate         => "{{ logstash_ssl_cert }}"
+        ssl_key                 => "{{ logstash_ssl_key }}"
     }
 }
 
