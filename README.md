@@ -1,38 +1,40 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Installs an ELK stack on a CentOS 7 machine
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+CentOS 7
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+logstash_port: Port logstash should listen on  
+logstash_ssl_cert: Location of ssl cert  
+logstash_ssl_key: Location of ssl private key  
+kibana_port: Port kibana should listen on  
+kibana_ip: IP kibana should bind to  
+kibana_elastic_url: URL kibana should use to connect to elasticsearch  
+kibana_log_dest: location kibana logs should be written to  
+elastic_ip: IP elasticsearch should bind to  
+elastic_port: Port elasticsearch should listen on  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - hosts: elk 
       roles:
-         - { role: username.rolename, x: 42 }
+         - elkstack
 
 License
 -------
 
-BSD
+GPLv2
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
