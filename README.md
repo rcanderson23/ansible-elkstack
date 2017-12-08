@@ -1,4 +1,4 @@
-Role Name
+elkstack
 =========
 
 Installs an ELK stack on a CentOS 7 machine
